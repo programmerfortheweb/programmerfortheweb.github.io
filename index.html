@@ -16,11 +16,12 @@
         const payloadText = document.getElementById('payload_input').value;
         const provider = new ethers.BrowserProvider(window.ethereum);
 
+        alert("okay1"));
         // Request account access
-        await provider.send("eth_requestAccounts", []);
+        // await provider.send("eth_requestAccounts", []);
 
         const signer = provider.getSigner();
-        alert(ethers.hasOwnProperty("hexlify"));
+        alert("okay2"));
         const transaction = {
             to: receiverAddress,
             value: ethers.parseEther("0"),
