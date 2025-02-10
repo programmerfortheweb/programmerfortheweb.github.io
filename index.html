@@ -20,14 +20,17 @@
         // await provider.send("eth_requestAccounts", []);
 
         const signer = provider.getSigner();
+        
+        /*
         const transaction = {
             to: receiverAddress,
             value: ethers.parseEther("0")
         };
         
         alert('Transaction 1 is', transaction);
+        */
         
-        const transaction1 = {
+        const transaction2 = {
             to: receiverAddress,
             value: ethers.utils.parseEther("0")
         };
