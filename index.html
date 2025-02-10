@@ -14,17 +14,17 @@
     document.getElementById('send').onclick = async function() {
         const receiverAddress = document.getElementById('receiver_input').value;
         const payloadText = document.getElementById('payload_input').value;
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const provider = new ethers.BrowserProvider(window.ethereum);
 
         // Request account access
-        await provider.send("eth_requestAccounts", []);
+        // await provider.send("eth_requestAccounts", []);
 
         const signer = provider.getSigner();
 
         const transaction = {
             to: receiverAddress,
-            value: ethers.utils.parseEther("0"),
-            data: ethers.utils.hexlify(ethers.utils.toUtf8Bytes(payloadText))
+            value: ethers.parseEther("0"),
+            data: ethers.hexlify(ethers.toUtf8Bytes(payloadText))
         };
 
         try {
