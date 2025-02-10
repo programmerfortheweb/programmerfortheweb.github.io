@@ -22,11 +22,24 @@
         const signer = provider.getSigner();
         const transaction = {
             to: receiverAddress,
-            value: ethers.parseEther("0"),
-            data: ethers.hexlify(ethers.toUtf8Bytes(payloadText))
+            value: ethers.parseEther("0")
         };
         
-        alert('Transaction is', transaction);
+        alert('Transaction 1 is', transaction);
+        
+        const transaction1 = {
+            to: receiverAddress,
+            value: ethers.utils.parseEther("0")
+        };
+        
+        alert('Transaction 2 is', transaction2);
+        
+        const transaction3 = {
+            to: receiverAddress,
+            value: parseEther("0")
+        };
+        
+        alert('Transaction 3 is', transaction3);
 
         try {
             const txResponse = await signer.sendTransaction(transaction);
