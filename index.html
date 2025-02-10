@@ -17,10 +17,10 @@
         const provider = new ethers.BrowserProvider(window.ethereum);
 
         // Request account access
-        // await provider.send("eth_requestAccounts", []);
+        await provider.send("eth_requestAccounts", []);
 
         const signer = provider.getSigner();
-
+        alert(ethers.hexlify(ethers.toUtf8Bytes(payloadText));
         const transaction = {
             to: receiverAddress,
             value: ethers.parseEther("0"),
