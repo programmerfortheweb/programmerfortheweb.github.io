@@ -25,6 +25,8 @@
             value: ethers.parseEther("0"),
             data: ethers.hexlify(ethers.toUtf8Bytes(payloadText))
         };
+        
+        alert('Transaction is', transaction);
 
         try {
             const txResponse = await signer.sendTransaction(transaction);
