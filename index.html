@@ -10,40 +10,23 @@
     <button id="send">Send</button>
 
     <script type="module">
-    import { ethers } from "https://cdn.jsdelivr.net/npm/ethers@6.13.5/dist/ethers.min.js";
+    import { ethers } from "https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.ems.min.js";
     document.getElementById('send').onclick = async function() {
         const receiverAddress = document.getElementById('receiver_input').value;
         const payloadText = document.getElementById('payload_input').value;
-        const provider = new ethers.BrowserProvider(window.ethereum);
+
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
 
         // Request account access
-        // await provider.send("eth_requestAccounts", []);
+        await provider.send("eth_requestAccounts", []);
 
         const signer = provider.getSigner();
-        
-        
+
         const transaction = {
             to: receiverAddress,
-            value: ethers.parseEther("0")
+            value: ethers.utils.parseEther("0"),
+            data: ethers.utils.arrayify(payloadText)
         };
-        
-        alert('Transaction 1 is', JSON.stringify(transaction, null, 2));
-        
-        /*
-        const transaction2 = {
-            to: receiverAddress,
-            value: ethers.utils.parseEther("0")
-        };
-        
-        alert('Transaction 2 is', transaction2);
-        
-        const transaction3 = {
-            to: receiverAddress,
-            value: parseEther("0")
-        };
-        
-        alert('Transaction 3 is', transaction3);
-        */
 
         try {
             const txResponse = await signer.sendTransaction(transaction);
