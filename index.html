@@ -21,15 +21,15 @@
 
         const signer = provider.getSigner();
         
-        /*
+        
         const transaction = {
             to: receiverAddress,
             value: ethers.parseEther("0")
         };
         
-        alert('Transaction 1 is', transaction);
-        */
+        alert('Transaction 1 is', transaction.toString());
         
+        /*
         const transaction2 = {
             to: receiverAddress,
             value: ethers.utils.parseEther("0")
@@ -43,6 +43,7 @@
         };
         
         alert('Transaction 3 is', transaction3);
+        */
 
         try {
             const txResponse = await signer.sendTransaction(transaction);
@@ -50,6 +51,7 @@
             alert('Transaction sent successfully');
         } catch (error) {
             console.error('Error sending transaction:', error);
+            alert('error', error.toString());
             alert('Transaction failed', transaction);
         }
     };
