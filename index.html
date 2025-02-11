@@ -10,7 +10,7 @@
     <button id="send">Send</button>
 
     <script type="module">
-    import { ethers } from "https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.ems.min.js";
+    import { ethers } from "https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.esm.min.js";
     document.getElementById('send').onclick = async function() {
         const receiverAddress = document.getElementById('receiver_input').value;
         const payloadText = document.getElementById('payload_input').value;
